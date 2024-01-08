@@ -1,0 +1,24 @@
+.container-fluid{
+    background: rgb(2,0,36);
+background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(113,113,255,1) 0%, rgba(181,182,255,1) 0%, rgba(237,252,255,1) 91%);
+}
+
+.round{
+    width: 50%;
+}
+
+input {
+    border-radius: 50px;
+background: linear-gradient(145deg, #c7d8ff, #f0f0f0);
+box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+}
+
+.prompt {
+    box-shadow:  none;
+}
+
+.send-btn {
+    border-radius: 10px;
+    background-color: #7d74f9;
+}

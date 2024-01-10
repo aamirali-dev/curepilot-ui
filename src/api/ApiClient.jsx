@@ -4,16 +4,11 @@ export const apiClient = axios.create({
     baseURL: (import.meta.env.VITE_API_SERVER_URL)
 })
 
-apiClient.interceptors.request.use((config) => {
-    console.log(config)
-    config.headers.Authorization = `JWT ${localStorage.getItem('access')}`
-    return config
-})
 
 
 apiClient.interceptors.request.use(
     async (config) => {
-        const accessToken = localStorage.getItem('access');
+        let accessToken = localStorage.getItem('access');
         if(accessToken){
             if(isTokenExpired(accessToken)){
                 accessToken = refreshToken()
@@ -22,7 +17,9 @@ apiClient.interceptors.request.use(
             return config
         }else{
 
-        }}
+        }
+        return config
+    }
 )
 
 const refreshToken = async () => {

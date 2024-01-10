@@ -30,12 +30,14 @@ const AuthProvider = ({children}) => {
               localStorage.setItem("access", response.data.access)
               localStorage.setItem("refresh", response.data.refresh)
               setAuthenticated(true)
+              console.log('returning from login function')
               return true
             }
           })
           .catch((error) => {
             console.log(error)
             setAuthenticated(false)
+            console.log('returning from login function')
             return false
           })
         }

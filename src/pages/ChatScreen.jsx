@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import {LuSend} from 'react-icons/lu'
 import ChatGroup from '../components/ChatGroup'
 import {completeChat} from '../api/ChatApi'
+import ChatHistory from '../components/ChatHistory'
 
 const ChatScreen = () => {
 
@@ -58,11 +59,12 @@ const ChatScreen = () => {
     }
 
     return (
-        <div className='container-fluid d-flex justify-content-center align-items-center w-100' style={{ height: '100vh' }}>
+        <div className='container-fluid d-flex justify-content-center align-items-center w-100' style={{ height: '100vh', paddingLeft: '0', paddingRight: '0' }}>
             <div className='row w-100 h-100 d-flex justify-content-between align-items-between'>
-                <ChatGroup chats={chats}/>
-                <form className='d-flex justify-content-center align-items-end gap-1' style={{position: 'fixed', bottom: '3%'}} onSubmit={handlePromptSubmit} onKeyDown={handleKeyDown}>
-                    <textarea id="input-textarea" type='text' className='form-control prompt scroll-bar-custom' name='prompt' onChange={handlePromptChange} value={prompt} style={{width: '80%', height: '5vh', maxHeight: '50vh'}} ref={textarea} />
+                <ChatHistory />
+                <ChatGroup chats={chats} />
+                <form className='d-flex justify-content-center align-items-end gap-1' style={{position: 'fixed', bottom: '3%', right: '-5%'}} onSubmit={handlePromptSubmit} onKeyDown={handleKeyDown}>
+                    <textarea id="input-textarea" type='text' className='form-control prompt scroll-bar-custom' name='prompt' onChange={handlePromptChange} value={prompt} style={{width: '60%', height: '5vh', maxHeight: '50vh'}} ref={textarea} />
                     <button className='btn send-btn' type="submit" disabled={disableSubmit}><LuSend size={20} color='white' /></button>
                 </form>
             </div>

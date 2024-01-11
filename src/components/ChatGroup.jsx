@@ -14,7 +14,7 @@ const ChatGroup = ({chats}) => {
   
     return (
       <div
-        className="overflow-auto gap-2 d-flex flex-column scroll-bar-custom pt-3"
+        className="gap-2 d-flex flex-column scroll-bar-custom pt-3 overflow-auto"
         style={{ height: "90%", width: '90%' }}
       >
         {chats_array.map((chat) => {

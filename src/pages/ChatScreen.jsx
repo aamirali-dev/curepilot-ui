@@ -29,6 +29,14 @@ const ChatScreen = () => {
         event.target.style.height = '5vh';
         event.target.style.height = event.target.scrollHeight + 'px'
     }
+
+    const handleKeyDown = (event) => {
+        const isModifierKey = event.shiftKey || event.ctrlKey || event.altKey || event.metaKey;
+        if (event.key === 'Enter' && !isModifierKey) {
+            handlePromptSubmit(event)
+        }
+    }
+
     const handlePromptSubmit = async (event) => {
         event.preventDefault()
         const message = prompt
@@ -53,7 +61,7 @@ const ChatScreen = () => {
         <div className='container-fluid d-flex justify-content-center align-items-center w-100' style={{ height: '100vh' }}>
             <div className='row w-100 h-100 d-flex justify-content-between align-items-between'>
                 <ChatGroup chats={chats}/>
-                <form className='d-flex justify-content-center align-items-end gap-1' style={{position: 'fixed', bottom: '3%'}} onSubmit={handlePromptSubmit}>
+                <form className='d-flex justify-content-center align-items-end gap-1' style={{position: 'fixed', bottom: '3%'}} onSubmit={handlePromptSubmit} onKeyDown={handleKeyDown}>
                     <textarea id="input-textarea" type='text' className='form-control prompt scroll-bar-custom' name='prompt' onChange={handlePromptChange} value={prompt} style={{width: '80%', height: '5vh', maxHeight: '50vh'}} ref={textarea} />
                     <button className='btn send-btn' type="submit" disabled={disableSubmit}><LuSend size={20} color='white' /></button>
                 </form>

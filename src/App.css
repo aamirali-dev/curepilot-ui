@@ -17,7 +17,8 @@ box-shadow:  20px 20px 60px #bebebe,
 .prompt {
     box-shadow:  none;
     border-radius: 20px;
-    height: 30px;
+    min-height: 50%;
+    overflow-y: 'auto';
 }
 
 .send-btn {
@@ -36,12 +37,11 @@ box-shadow:  20px 20px 60px #bebebe,
 }
 
 .scroll-bar-custom::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
     background-color: none;
-    height: 50%;
 }
 
 .scroll-bar-custom::-webkit-scrollbar-thumb {
     background-color: rgb(148, 214, 240);
-    border-radius: 10px;
+    border-radius: 100px;
 }
